@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Manzana",
+        "price": "2'50",
+        "description": "Manzana Golden"
+    },
+    {
+        "id": 2,
+        "name": "Melón",
+        "price": "5",
+        "description": "Melón de invierno"
+    },
+    {
+        "id": 3,
+        "name": "Pera",
+        "price": "3'75",
+        "description": "Pera conferencia"
+    }
+]

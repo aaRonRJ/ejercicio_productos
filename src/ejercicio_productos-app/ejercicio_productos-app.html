@@ -1,0 +1,34 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="./products-list.html">
+
+<dom-module id="ejercicio_productos-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <products-list products="{{products}}"></products-list>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class Ejercicio_productosApp extends Polymer.Element {
+      static get is() { return 'ejercicio_productos-app'; }
+      static get properties() {
+        return {
+          products: {
+            type: Array,
+            value: function() { return []; }
+          }
+        };
+      }
+    }
+
+    window.customElements.define(Ejercicio_productosApp.is, Ejercicio_productosApp);
+  </script>
+</dom-module>

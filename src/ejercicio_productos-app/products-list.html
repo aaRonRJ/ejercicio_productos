@@ -1,0 +1,62 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./product-item.html">
+<link rel="import" href="./product_service/product-service.html">
+
+<dom-module id="products-list">
+    <template>        
+        <h1>Productos</h1>
+        <product-service products="{{products}}"></product-service>
+
+        <div class="cabecera">
+            <div class="item_cabecera">ID</div>
+            <div class="item_cabecera">NOMBRE</div>
+            <div class="item_cabecera">PRECIO</div>
+            <div class="item_cabecera">&nbsp;</div>
+        </div>
+        
+        <template is="dom-repeat" items="{{products}}" as="product">                
+            <product-item clave="[[product.id]]" nombre="[[product.name]]" precio="[[product.price]]"></product-item>                           
+        </template>
+        
+        <style>
+            :host {
+                display: block;
+            }
+
+            .cabecera {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                height: 100%;
+                margin: auto;
+                align-content: space-between;
+            }
+
+            .item_cabecera {
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                border: 1px solid #000000;
+                text-align: center;
+                font-size: 16pt;
+                font-weight: bolder;
+            }
+        </style>
+    </template>        
+
+    <script>
+        class ProductsList extends Polymer.Element {
+            static get is() { return 'products-list'; }
+            static get properties() {
+                return {
+                    products: {
+                        type: Array,
+                        value: function() { return []; }
+                    }
+                };
+            }
+        }
+
+        window.customElements.define(ProductsList.is, ProductsList);
+    </script>
+</dom-module>

@@ -1,0 +1,66 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="product-item">
+    <template>
+        <div class="cuerpo">
+            <div class="item_cuerpo">[[clave]]</div>
+            <div class="item_cuerpo">[[nombre]]</div>
+            <div class="item_cuerpo">[[precio]]</div>
+            <div class="item_cuerpo">
+                    <paper-button raised class="button_ver">Ver</paper-button>
+            </div>
+        </div>
+        
+        <style>
+            :host {
+                display: block;
+            }
+
+            .cuerpo {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                height: 100%;
+                margin: auto;
+                align-content: space-between;
+            }
+
+            .item_cuerpo {
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                border: 1px solid #000000;
+                text-align: center;
+            }
+
+            .button_ver {
+                color: #ffffff;
+            }
+        </style>
+    </template>
+
+    <script>
+        class ProductItem extends Polymer.Element {
+            static get is() {
+                return "product-item";
+            }
+
+            static get properties() {
+                return {
+                    clave: {
+                        type: Number
+                    },
+                    nombre: {
+                        type: String
+                    },
+                    precio: {
+                        type: String
+                    }
+                };
+            }
+        }
+
+        window.customElements.define(ProductItem.is, ProductItem)
+    </script>
+</dom-module>

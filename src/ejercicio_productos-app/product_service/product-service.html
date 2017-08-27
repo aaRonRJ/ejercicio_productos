@@ -1,0 +1,37 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="product-service">
+    <template>
+        <iron-ajax auto url="../../../mocks/products.json" handle-as="json" on-response="loadProducts"></iron-ajax>
+    </template>
+
+    <script>
+        class ProductService extends Polymer.Element {
+            static get is() {
+                return "product-service";
+            }
+
+            static get properties () {
+                return {
+                    products: {
+                        type: Array,
+                        reflectToAttribute: true,
+                        notify: true
+                    }
+                };
+            }
+
+            connectedCallback () {
+                super.connectedCallback();
+                this.products = [];
+            }
+
+            loadProducts(data) {
+                this.products = data.detail.response;
+            }
+        }
+
+        window.customElements.define(ProductService.is, ProductService);
+    </script>
+</dom-module>
